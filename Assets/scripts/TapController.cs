@@ -29,10 +29,10 @@ public class TapController : MonoBehaviour {
 
 	void Start(){
 		
-		//downrotation = Quaternion.Euler (0, 0, -90);
-		//forwardrotation = Quaternion.Euler (0, 0, 35);
+		downrotation = Quaternion.Euler (0, 0, -90);
+		forwardrotation = Quaternion.Euler (0, 0, 35);
 		game = GameManager.Instance;
-		rigidbody.simulated = false;
+		//rigidbody.simulated = false;
 	}
 
 	void OnEnable(){
@@ -66,7 +66,7 @@ public class TapController : MonoBehaviour {
 			tapAudio.Play ();
 			transform.rotation = forwardrotation;
 			rigidbody.velocity = Vector3.zero;
-			rigidbody.AddForce (Vector2.down * tapForce, ForceMode2D.Force);
+			rigidbody.AddForce (Vector2.up * tapForce, ForceMode2D.Force);
 
 			}
 
@@ -84,7 +84,7 @@ public class TapController : MonoBehaviour {
 			scoreAudio.Play();
 		}
 
-		if (col.gameObject.tag == "DeadZones") {
+		if (col.gameObject.tag == "DeadZone") {
 		
 			rigidbody.simulated = false;
 			//OnPlayerDied ();
