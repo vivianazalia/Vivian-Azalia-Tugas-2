@@ -15,20 +15,19 @@ public class CountdownText : MonoBehaviour {
 	void OnEnable(){
 		countdown = GetComponent<Text>();
 		countdown.text = "3";
-		StartCoroutine ("Countdown");
-	
-	
+		//StartCoroutine ("Countdown");
+		StartCoroutine(Countdown());
+		
 	}
 
-	IEnumerator Countdown(){
+    IEnumerator Countdown(){
 		int count = 3;
 		for (int i = 0; i < count; i++) {
 			countdown.text = (count - i).ToString();
 			yield return new WaitForSeconds (1);
-		
-		
 		}
-	
-		OnCountdownFinished ();
+
+		///OnCountdownFinished ();
+		OnCountdownFinished?.Invoke();
 	}
 }

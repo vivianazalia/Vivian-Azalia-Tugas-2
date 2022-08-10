@@ -54,6 +54,7 @@ public class Parallaxer : MonoBehaviour {
 
 	void OnEnable(){
 		GameManager.OnGameOverConfirmed += OnGameOverConfirmed;
+		//GameManager.OnGameStarted += Shift;
 	}
 	void OnDisable(){
 		GameManager.OnGameOverConfirmed -= OnGameOverConfirmed;

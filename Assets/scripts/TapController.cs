@@ -28,14 +28,15 @@ public class TapController : MonoBehaviour {
 
 
 	void Start(){
-		rigidbody = GetComponent<Rigidbody2D> ();
-		downrotation = Quaternion.Euler (0, 0, -90);
-		forwardrotation = Quaternion.Euler (0, 0, 35);
+		
+		//downrotation = Quaternion.Euler (0, 0, -90);
+		//forwardrotation = Quaternion.Euler (0, 0, 35);
 		game = GameManager.Instance;
 		rigidbody.simulated = false;
 	}
 
 	void OnEnable(){
+		rigidbody = GetComponent<Rigidbody2D>();
 		GameManager.OnGameStarted += OnGameStarted;
 		GameManager.OnGameOverConfirmed += OnGameOverConfirmed;
 	}
@@ -49,7 +50,6 @@ public class TapController : MonoBehaviour {
 	void OnGameStarted(){
 		rigidbody.velocity = Vector3.zero;
 		rigidbody.simulated = true;
-
 	}
 	void OnGameOverConfirmed(){
 		transform.localPosition = startPos;
@@ -78,15 +78,17 @@ public class TapController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col){
 
 		if (col.gameObject.tag == "ScoreZone") {
-		
-			OnPlayerScored ();
+
+			//OnPlayerScored ();
+			OnPlayerScored?.Invoke();
 			scoreAudio.Play();
 		}
 
 		if (col.gameObject.tag == "DeadZones") {
 		
 			rigidbody.simulated = false;
-			OnPlayerDied ();
+			//OnPlayerDied ();
+			OnPlayerDied?.Invoke();
 			dieAudio.Play();
 		}
 	
