@@ -28,11 +28,9 @@ public class TapController : MonoBehaviour {
 
 
 	void Start(){
-		
 		downrotation = Quaternion.Euler (0, 0, -90);
 		forwardrotation = Quaternion.Euler (0, 0, 35);
 		game = GameManager.Instance;
-		//rigidbody.simulated = false;
 	}
 
 	void OnEnable(){
@@ -44,7 +42,6 @@ public class TapController : MonoBehaviour {
 	void OnDisable(){
 		GameManager.OnGameStarted -= OnGameStarted;
 		GameManager.OnGameOverConfirmed -= OnGameOverConfirmed;
-	
 	}
 
 	void OnGameStarted(){

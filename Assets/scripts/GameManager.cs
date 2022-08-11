@@ -47,7 +47,6 @@ public class GameManager : MonoBehaviour {
 	void OnCountdownFinished(){
 		SetPageState (PageState.None);
 		FindObjectOfType<TapController>().GetComponent<TapController>().enabled = true;
-		//OnGameStarted ();
 		OnGameStarted?.Invoke();
 		score = 0;
 		gameOver = false;
@@ -61,7 +60,6 @@ public class GameManager : MonoBehaviour {
 		
 		}
 		SetPageState (PageState.GameOver);
-		ConfirmedGameOver();
 	}
 
 	void OnPlayerScored(){
@@ -99,7 +97,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void ConfirmedGameOver(){
-		//OnGameOverConfirmed();
 		OnGameOverConfirmed?.Invoke();
 		scoreText.text="0";
 		SetPageState (PageState.Start);
