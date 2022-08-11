@@ -515,7 +515,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 594842938}
   m_BodyType: 0
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -534,7 +534,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 594842938}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -862,6 +862,7 @@ MonoBehaviour:
   gameOverPage: {fileID: 1572911945}
   countdownPage: {fileID: 190962899}
   scoreText: {fileID: 1724245537}
+  gameOver: 1
 --- !u!1 &972887360
 GameObject:
   m_ObjectHideFlags: 0
